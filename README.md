@@ -25,14 +25,26 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read.
 
 1. Explain the differences between `.map`, `.reduce` and `.filter` and describe a use case for each. 
+    
+    .map will return an array from calling a function for each element. .reduce returns a single value which is the function's accumulated result. .filter returns an array filled with elements that pass a test by a function. 
+    
+    .map could be used when you would want to double all the elemnts in an array. .reduce could be used when you would want a sum total of a list of numbers. .filter could be used when you would want specific elements returned from an array. 
 
 2. Explain the difference between a callback and a higher order function.
 
+    A callback function is the function that is passed into a higher order function.
+
 3. Explain what a closure is.
+
+    Closure is an internal function accessing an external variable.
 
 4. Describe the four principles of the 'this' keyword.
 
+    The four principles of the 'this' keyword are implicit binding, explicit binding, window binding, and new binding. Window binding is when 'this' hasn't been given any context. It will return the global object. Implicit binding applies to objects with methods. When the method is invoked, look the the left of the dot, that's what 'this' refers to. Explicit binding is when we tell the function what the 'this' keyword should be using, either .call, .apply or .bind. New binding is when a function is invoked with a new keyword the 'this' keyword inside that function is bound to the new object being constructed. When a function is invoked as a constructor function using the new keyword, this points to the new object that’s created.
+
 5. Why do we need super() in an extended class?
+
+    Super() connects the props of one class to another and replaces having to write explicit binding methods. 
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
