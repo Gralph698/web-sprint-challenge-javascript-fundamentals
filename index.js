@@ -32,11 +32,15 @@ function myFunction() {
 💡 NOTE: you may use a for loop for this function if you wish 
 */
 
-function summation(number) {
-
+function summation(num) {
+    let result = 0;
+    for (let i = 0; i < num; i++){
+      result = result + i + 1;  
+      console.log(result);
+    }; 
+    return result;
   }
-
-
+console.log("task 2:", summation(4));
  
 
 
@@ -64,12 +68,10 @@ const zooAnimals = [
   💡 NOTE: the array returned should be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(array){
-    const displayNames = [];
-    array.forEach(animal => {
-      if(animal.animal_name === true && animal.scientific_name === true){
-        displayNames.push(animal)
-      };
+  function animalNames(zooAnimals){
+   const displayNames =[];
+    zooAnimals.forEach(animalNames => {
+      displayNames.push(`name: ${animalNames.animal_name}, scientific: ${animalNames.scientific_name}`);
     });
     return displayNames;
   }
@@ -87,9 +89,8 @@ const zooAnimals = [
   */
 
   function lowerCaseNames(zooAnimals){
-  const mappedAnimals = zooAnimals.map((element, index, array) => { 
-    const fLetter = element.animal_name[0].toLowerCase();
-    let slice = element.zooAnimals.slice(10);
+  const mappedAnimals = zooAnimals.map(element => { 
+      return element.animal_name.toLowerCase();
   }); 
   return mappedAnimals
   }
@@ -104,7 +105,7 @@ const zooAnimals = [
   */
 
   function lowPopulationAnimals(zooAnimals){
-    const lowPopAnimals = zooAnimals.filter((element) => {
+    const lowPopAnimals = zooAnimals.filter(element => {
       return element.population < 5;
     });
       return lowPopAnimals;
@@ -123,10 +124,12 @@ const zooAnimals = [
   */
 
   function USApop(zooAnimals){
-   zooAnimals.reduce((accumulator, currentElement) => {
+   const totalPop = zooAnimals.reduce((accumulator, currentElement) => {
     return accumulator += currentElement.population; 
-    });
+    }, 0);
+    return totalPop
   }
+    USApop(zooAnimals);
   
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -176,9 +179,9 @@ function greeting(firstName, lastName){
   
 // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
- console.log(consume(2, 2, add)); // 4
- console.log(consume(10, 16, multiply)); // 160
- console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+ //console.log(consume(2, 2, add)); // 4
+ //console.log(consume(10, 16, multiply)); // 160
+ //console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 
@@ -206,8 +209,12 @@ function CuboidMaker({length, width, height}){
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   💡 NOTE: Formula for cuboid volume: length * width * height   
 */
-CuboidMaker.prototype.volume = function(length, width, height){
+CuboidMaker.prototype.volume = function(){
+  let length = this.length;
+  let width = this.width;
+  let height =  this.height;
   return length * width * height;
+
 }
 
 
@@ -216,7 +223,10 @@ CuboidMaker.prototype.volume = function(length, width, height){
   Create another method called surfaceArea using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
   💡 NOTE: Formula for cuboid surface area: 2 * (length * width + length * height + width * height)  
 */
-CuboidMaker.prototype.surfaceArea = function(length, width, height){
+CuboidMaker.prototype.surfaceArea = function(){
+  let length = this.length;
+  let width = this.width;
+  let height = this.height;
   return 2 * (length * width + length * height + width * height);
 }
 
@@ -232,8 +242,8 @@ CuboidMaker.prototype.surfaceArea = function(length, width, height){
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
- console.log(cuboid.volume(4, 5, 5)); // 100
- console.log(cuboid.surfaceArea(4, 5, 5)); // 130
+ //console.log(cuboid.volume(4, 5, 5)); // 100
+ //console.log(cuboid.surfaceArea(4, 5, 5)); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
@@ -246,9 +256,15 @@ class CuboidMakerTwo{
     this. height = height;
   } 
   volume(){
+    let length = this.length;
+  let width = this.width;
+  let height = this.height;
   return length * width * height;
   }
   surfaceArea(){
+    let length = this.length;
+  let width = this.width;
+  let height = this.height;
     return 2 * (length * width + length * height + width * height);
   } 
 }
